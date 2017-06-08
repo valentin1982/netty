@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Веб морда для вывода данных контроллера</title>
+    <script src="js/faceScript.js"></script>
+</head>
+
+<script>
+    var controllerList = sendGetControllersList();
+    var responseText = "";
+</script>
+
+<body>
+    <h2 id="topHeader">Данные контроллера</h2></br>
+    <form id="select1" action="/" onsubmit="responseText = sendControllerNumber(document.getElementByName('select2').selectedIddex);
+            alert(responseText)">
+        <select name="select2" size="1" required>
+            <option disabled>Выберите контроллер</option>
+            <span id="list"></span>
+            <script>
+                var list = "";
+                for (var i = 0; i < controllerList.length; i++) {
+                    list+='<option value="' + controllerList[i] + '">' + controllerList[i] + '</option>';
+                }
+                document.getElementById("list").innerHTML(list);
+            </script>
+        </select>
+        <input type="submit" name="selectController" value="Выбрать">
+    </form>
+
+    <table id="tbl1" border="1" width="100"> <!-- таблица должна генерироваться из данных, полученных с сервера -->
+        <tr>
+            <th>Адресс</th>
+            <th>Имя</th>
+            <th>Статус</th>
+            <th>Значение</th>
+        </tr>
+        <tr id="tr1">
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        <tr id="tr2">
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        <tr id="tr3">
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        <tr id="tr4">
+            <td></td><td></td><td></td><td></td>
+        </tr>
+    </table>
+</body>
+</html>
